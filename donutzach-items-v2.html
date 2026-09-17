@@ -6,7 +6,7 @@
 <title>donutzach — Items</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
   :root {
     --pink: #ff6fb0;
@@ -208,6 +208,108 @@
     margin: 0;
   }
 
+  /* market grid */
+  .market-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 220px));
+    justify-content: center;
+    gap: 26px;
+    padding: 10px 24px 90px;
+  }
+
+  .item-card {
+    background: linear-gradient(160deg, #16121b, #0a090d);
+    border: 3px solid #2b2b33;
+    border-radius: 16px;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+
+  .item-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.65), 0 0 26px rgba(199, 125, 255, 0.28);
+  }
+
+  .item-slot {
+    width: 96px;
+    height: 96px;
+    background: #8b8b8b;
+    border: 4px solid;
+    border-color: #3a3a3a #d9d9d9 #d9d9d9 #3a3a3a;
+    box-shadow: inset 3px 3px 0 rgba(0, 0, 0, 0.35), inset -3px -3px 0 rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .item-slot img {
+    width: 74px;
+    height: 74px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.5));
+  }
+
+  .item-name {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: #f2f2f5;
+    margin: 0;
+  }
+
+  .item-price {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(255, 209, 102, 0.55);
+    margin: 0;
+  }
+
+  .item-price span {
+    display: block;
+    margin-top: 6px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.75rem;
+    color: #8d8a94;
+    text-shadow: none;
+  }
+
+  .item-buy {
+    margin-top: 4px;
+    padding: 9px 26px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #17101c;
+    background: linear-gradient(100deg, var(--gold), var(--pink) 60%, var(--purple));
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(199, 125, 255, 0.3);
+    transition: transform .15s ease, box-shadow .2s ease;
+  }
+
+  .item-buy:hover {
+    box-shadow: 0 0 18px rgba(255, 209, 102, 0.5), 0 10px 22px rgba(199, 125, 255, 0.4);
+  }
+
+  .item-buy:active {
+    transform: scale(0.92);
+  }
+
+  .item-buy:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .drift { animation: none; }
   }
@@ -218,7 +320,7 @@
   <div class="sprinkle-field" id="sprinkleField"></div>
 
   <nav class="navbar">
-    <a class="brand" href="donutzach-buy-button.html" aria-label="donutzach home">
+    <a class="brand" href="donutzach-home-v2.html" aria-label="donutzach home">
       <svg class="donut-icon-sm" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="icingSm" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -254,7 +356,18 @@
 
   <div class="hero">
     <h1>Item Shop</h1>
-    <p>Still glazing the shelves — check back soon.</p>
+    <p>Fresh off the shelf.</p>
+  </div>
+
+  <div class="market-grid">
+    <div class="item-card">
+      <div class="item-slot">
+        <img src="data:image/webp;base64,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" alt="Elytra">
+      </div>
+      <p class="item-name">Elytra</p>
+      <p class="item-price">£7.99<span>each</span></p>
+      <button type="button" class="item-buy">Buy</button>
+    </div>
   </div>
 
 <script>
